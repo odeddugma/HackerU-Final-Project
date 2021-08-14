@@ -1,23 +1,29 @@
 {
-  "name": "hackeru-final-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/odeddugma/HackerU-Final-Project.git"
-  },
-  "author": "Oded Dugma",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/odeddugma/HackerU-Final-Project/issues"
-  },
-  "homepage": "https://github.com/odeddugma/HackerU-Final-Project#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.13.7"
-  }
+	"name": "hackeru-final-project",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/odeddugma/HackerU-Final-Project.git"
+	},
+	"author": "Oded Dugma",
+	"license": "UNLICENSED",
+	"bugs": {
+		"url": "https://github.com/odeddugma/HackerU-Final-Project/issues"
+	},
+	"homepage": "https://github.com/odeddugma/HackerU-Final-Project#readme",
+	"dependencies": {
+		"bcrypt": "^5.0.1",
+		"config": "^3.3.6",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"joi": "^17.4.2",
+		"jsonwebtoken": "^8.5.1",
+		"lodash": "^4.17.21",
+		"mongoose": "^5.13.7"
+	}
 }
