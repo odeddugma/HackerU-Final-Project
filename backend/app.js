@@ -8,7 +8,7 @@ const auth = require("./routes/auth");
 const cards = require("./routes/cards");
 
 mongoose
-	.connect("mongodb://localhost/node_rest_api", {
+	.connect("mongodb://localhost/hackeru-finel-project", {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
