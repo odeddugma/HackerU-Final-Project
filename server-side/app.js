@@ -1,44 +1,32 @@
 const express = require("express");
 const app = express();
 const http = require("http").Server(app);
-//const cors = require('cors'); // Remove in production !!!
+const cors = require("cors");
 const mongoose = require("mongoose");
+const users = require("./routes/users");
+const auth = require("./routes/auth");
+const cards = require("./routes/cards");
 
-// create server
-const port = 3900;
-http.listen(port, () => console.log(`Listening to port ${port}.`));
-
-// create connection to MongoDB via mongoose
 mongoose
-	.connect("mongodb://localhost/hackeru_finel_project", {
+	.connect("mongodb://localhost/node_rest_api", {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
 		useCreateIndex: true,
 	})
-	.then(() =>
-		console.log(
-			'MongoDB connected. \nWorking on "hackeru_finel_project" DataBase.'
-		)
-	)
-	.catch((err) => console.log(err));
+	.then(() => {
+		console.log("MongoDB Connected");
+	});
 
-//app.use(cors()); // Remove in production !!!
-
-// set req/res to obj/json
-app.use(express.json());
-
-/* BUSSINESS REGISTRATION */
-//all requests for 'domain/api/bizs' will be rout to this file
-const bizs = require("./routs/bizs");
-app.use("/api/bizs", bizs);
-
-/* CLIENTS REGISTRATION */
-// all requests for 'domain/api/clients' will be rout to this file
-const clients = require("./routs/clients");
-app.use("/api/clients", clients);
-
-/* BUSSINESS & CLIENTS LOGIN */
-// all requests for 'domain/api/auth' will be rout to this file
-const auth = require("./routs/auth");
+app.use(cors());
+// middleware
+app.use(express.json()); // translate JSON to object literal and backward
+// middleware
+app.use("/api/users", users); // if the req is for '/api/users' it will go to the endpoint at './routes/users'
 app.use("/api/auth", auth);
+app.use("/api/cards", cards);
+
+const port = 3900;
+http.listen(port, () => {
+	console.log(`listening to port ${port}`);
+});
